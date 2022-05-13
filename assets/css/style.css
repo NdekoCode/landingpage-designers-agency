@@ -1,39 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Corben:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800;9..144,900&display=swap');
 
 /*==== CONFIGURATION =============  */
 :root {
 
 /* ----------- Color -------------- */
-  --color-white: ##fdfffd;
+  --color-white: #fdfffd;
   --color-text: #8d8c96;
-  --color-title: #202e40;
+  --color-dark: #202e40;
   --color-yellow-underline: #ffefb5;
   --color-pink-underline: #fad5cf;
   --color-greenblack:#25554a;
   --color-blueblack: #1c516b;
+  --color-header-bg:#3dbeff;
 
 /* -----------Typographie & spacing ------------ */
-  --font-primary:Roboto,'Segoe UI',sans-serif;
-  --font-logo: Inter,Roboto,'Segoe UI',sans-serif;
+  --font-primary:Barlow,'Segoe UI',sans-serif;
+  --font-secondary:Fraunces,serif;
   --fs: 14px;
   --lh: 1.3;
   --fw: 500;
   --padding-box:130px;
+  --padding-page: 10px;
   
-  --navbar-link-space: 32px;
+  --navbar-link-space: 20px;
+  --navbar-link-space-small: 5px;
+  --navbar-link-space-medium: 15px;
   --width-max: 1250px;
+  --max-width-container: 1300px;
   
 }
 *,*::before,*::after{
   box-sizing: border-box;
+  transition: color 0.3s, background-color 0.3s;
 }
+
 html, body {
-  height: 100%;
-  width: 100%;
   scroll-behavior: smooth;
   font-family: var(--font-primary);
   font-size: var(--fs);
   font-weight: var(--fw);
+  margin: 0;
+  line-height: var(--lh);
 }
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+ h1,h2,h3,h4,h5,h6,.title,.link-details{
+  font-family: var(--font-secondary);
+  color: var(--color-dark);
+}
+
+.title-white {
+  color: var(--color-white);
+}
+
+.title-1 {
+  font-size: 2rem;
+}
+.title-2 {
+  font-size: 1.5rem;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container,.container-fluid {
+  margin: 0 auto;
+  padding: var(--padding-page);
+}
+
+.container-fluid {
+  max-width:var(--max-width-container);
+}
+
+.container {
+  max-width: var(--width-max);
+}
+/* ------------ HEADER --------------- */
+.header {
+  color: var(--color-white);
+  min-height: 100vh;
+  background: url('/assets/images/desktop/image-header.jpg') no-repeat top 5px center / cover;
+  background-color: var(--color-header-bg);
+}
+.header a {
+  text-decoration: none;
+}
+.header__logo,.header__logo img {
+  display: inline-block;
+}
+
+.header__logo {
+  width: 155px;
+  margin: 1rem 0;
+}
+.topbar{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.navbar__list__item,.navbar__link {
+  display:inline-block;
+}
+
+.navbar__link {
+  margin:var(--navbar-link-space-small);
+}
+.navbar-contact .navbar__link {
+  padding: var(--navbar-link-space-medium) var(--navbar-link-space-medium);
+  text-transform: uppercase;
+  border-radius: 99px;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  font-family: var(--font-secondary);
+  font-weight: bold;
+}
+.baseline {
+  max-width: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+.baseline__brand {
+  letter-spacing: 9px;
+  color: inherit;
+}
+.baseline__arrow {
+  font-size: 35px;
+  color: inherit;
+}
+
+/* ---RESPONSIVE  */
+
+@media only screen and (min-width: 576px) {
+  .title-1 {
+  font-size: 2.5rem;
+}
+.title-2 {
+  font-size: 2rem;
+}
+} 
+@media only screen and (min-width: 768px) {
+  .title-1 {
+  font-size: 3rem;
+}
+  .header .topbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 25px 10px;
+  }
+  .navbar{
+    display: flex;
+    align-items: center;
+  }
+  
+.navbar__link {
+  margin:0 var(--navbar-link-space-medium);
+}
+} 
+
+@media only screen and (min-width: 992px) {
+  .title-1 {
+  font-size: 3.5rem;
+}
+.title-2 {
+  font-size: 2.2rem;
+}
+  .container, .container-fluid {
+    padding:0;
+  }
+  
+.navbar__link {
+  margin:0 var(--navbar-link-space);
+}
+  .baseline__brand {
+  margin-bottom: 6.5rem;
+  }
+} 
+
+@media only screen and (min-width: 1200px) {
+  .title-1 {
+  font-size: 4rem;
+}
+.title-2 {
+  font-size: 2.5rem;
+}
+  
+} 
